@@ -1,9 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('pullsrc') {
+    stage('isunix') {
       steps {
         isUnix()
+      }
+    }
+    stage('art') {
+      steps {
+        build 'sridhar1'
+      }
+    }
+    stage('push') {
+      steps {
+        archiveArtifacts '*'
       }
     }
   }
